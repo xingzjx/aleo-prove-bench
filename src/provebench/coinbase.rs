@@ -5,8 +5,10 @@ use snarkvm::{
     algorithms::polycommit::kzg10::UniversalParams,
     curves::bls12_377::Bls12_377,
     prelude::{Address, CanonicalDeserialize, CoinbasePuzzle, EpochChallenge, PrivateKey, PuzzleConfig, Testnet3},
+    synthesizer::{ UniversalSRS},
     utilities::serialize::*,
 };
+
 use std::{fs::File, io::Read, time::Duration};
 
 type CoinbasePuzzleInst = CoinbasePuzzle<Testnet3>;
@@ -17,14 +19,17 @@ fn setup_prover(degree: u32) -> (CoinbasePuzzleInst, u32) {
     let mut srs = Vec::new();
     file.read_to_end(&mut srs).expect("need to read the whole file");
 
-    let universal_srs: UniversalParams<Bls12_377> =
-        CanonicalDeserialize::deserialize_with_mode(&*srs, Compress::No, Validate::No).expect("Failed to init universal SRS");
+    // let universal_srs = CanonicalDeserialize::deserialize_with_mode(&*srs, Compress::No, Validate::No).expect("Failed to init universal SRS");
     // let universal_srs = CoinbasePuzzleInst::setup(max_config, &mut thread_rng()).unwrap();
+
+    // info!("Initializing universal SRS");
+    let srs = UniversalSRS::<Testnet3>::load().expect("Failed to load SRS");
+    // info!("Universal SRS initialized");
 
     print_title_info("Waiting", "Prove Setup, trim srs to prove key");
 
     let config = PuzzleConfig { degree: 2_u32.pow(degree) };
-    let prover = CoinbasePuzzleInst::trim(&universal_srs, config).unwrap();
+    let prover = CoinbasePuzzleInst::trim(&srs, config).unwrap();
 
     (prover, config.degree)
 }
@@ -37,10 +42,13 @@ pub fn prove_by_degree(prover: Box<CoinbasePuzzleInst>, degree: u32, min_elapse:
             let challenge: EpochChallenge<Testnet3> = EpochChallenge::new(rng.next_u32(), Default::default(), degree).unwrap();
             let address = Address::try_from(PrivateKey::new(rng).unwrap()).unwrap();
             let nonce = rng.next_u64();
-            prover.prove(&challenge, address, nonce).unwrap();
+            // let current_proof_target = Default::default()
+            prover.prove(&challenge, address, nonce, Option::from(0)).unwrap();
         });
     })
     .unwrap();
+
+    println!("{:?}", result);
 
     print_result(&format!("{min_elapse}min:"), result);
 }
@@ -55,7 +63,10 @@ pub fn bench(degree: u32) {
 
     print_backgroud_metrics(6 * 60);
 
+    let d = (1 << 13) - 1;
+    print!("d {} ", d);
+
     let p: Box<CoinbasePuzzleInst> = Box::new(prover);
     prove_by_degree(p.clone(), degree, 1);
-    prove_by_degree(p.clone(), degree, 5);
+    // prove_by_degree(p.clone(), degree, 5);
 }

@@ -10,11 +10,11 @@ checksum = "f26201604c87b1e01bd3d98f8d5d9a8fcbb815e8cedb41ffccbeb4bf593a35fe"
 
 [[package]]
 name = "ahash"
-version = "0.7.6"
+version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fcb51a0695d8f838b1ee009b3fbf66bda078cd64590202a864a8f3e8c4315c47"
+checksum = "bf6ccdb167abbf410dcb915cabd428929d7f6a04980b54a11f26a39f1c7f7107"
 dependencies = [
- "getrandom",
+ "cfg-if",
  "once_cell",
  "version_check",
 ]
@@ -102,14 +102,15 @@ dependencies = [
  "once_cell",
  "rand",
  "snarkvm",
+ "snarkvm-algorithms 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "sysinfo",
 ]
 
 [[package]]
 name = "anyhow"
-version = "1.0.65"
+version = "1.0.66"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "98161a4e3e2184da77bb14f02184cdd111e83bbbcc9979dfee3c44b9a85f5602"
+checksum = "216261ddc8289130e551ddcd5ce8a064710c0d064a4d2895c67151c92b5443f6"
 
 [[package]]
 name = "arrayref"
@@ -751,6 +752,12 @@ name = "hashbrown"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8a9ee70c43aaf417c914396645a0fa852624801b24ebb7ae78fe8272889ac888"
+
+[[package]]
+name = "hashbrown"
+version = "0.13.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "33ff8ae62cd3a9102e5637afc8452c55acf3844001bd5374e0b0bd7b6616c038"
 dependencies = [
  "ahash",
 ]
@@ -870,7 +877,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "10a35a97730320ffe8e2d410b5d3b69279b98d2c14bdb8b70ea89ecf7888d41e"
 dependencies = [
  "autocfg",
- "hashbrown",
+ "hashbrown 0.12.3",
  "rayon",
  "serde",
 ]
@@ -1111,15 +1118,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "19e64526ebdee182341572e50e9ad03965aa510cd94427a4549448f285e957a1"
 dependencies = [
  "hermit-abi",
- "libc",
-]
-
-[[package]]
-name = "num_threads"
-version = "0.1.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2819ce041d2ee131036f4fc9d6ae7ae125a3a40e97ba64d04fe799ad9dabbb44"
-dependencies = [
  "libc",
 ]
 
@@ -1659,18 +1657,18 @@ checksum = "e25dfac463d778e353db5be2449d1cce89bd6fd23c9f1ea21310ce6e5a1b29c4"
 
 [[package]]
 name = "serde"
-version = "1.0.145"
+version = "1.0.147"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "728eb6351430bccb993660dfffc5a72f91ccc1295abaa8ce19b27ebe4f75568b"
+checksum = "d193d69bae983fc11a79df82342761dfbf28a99fc8d203dca4c3c1b590948965"
 dependencies = [
  "serde_derive",
 ]
 
 [[package]]
 name = "serde_derive"
-version = "1.0.145"
+version = "1.0.147"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81fa1584d3d1bcacd84c277a0dfe21f5b0f6accf4a23d04d4c6d61f1af522b4c"
+checksum = "4f1d362ca8fc9c3e3a7484440752472d68a6caa98f1ab81d99b5dfe517cec852"
 dependencies = [
  "proc-macro2 1.0.46",
  "quote 1.0.21",
@@ -1728,8 +1726,8 @@ checksum = "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
 
 [[package]]
 name = "snarkvm"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "anyhow",
  "clap",
@@ -1741,15 +1739,15 @@ dependencies = [
  "rayon",
  "self_update",
  "serde_json",
- "snarkvm-algorithms",
+ "snarkvm-algorithms 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
  "snarkvm-circuit",
- "snarkvm-compiler",
  "snarkvm-console",
- "snarkvm-curves",
- "snarkvm-fields",
- "snarkvm-parameters",
- "snarkvm-r1cs",
- "snarkvm-utilities",
+ "snarkvm-curves 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-parameters 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-r1cs 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-synthesizer",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
  "thiserror",
  "ureq",
  "walkdir",
@@ -1757,13 +1755,40 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-algorithms"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5f2616c3a49a76a2729fc07181be4607d0470aa9306c080dbef24f725a137f61"
+dependencies = [
+ "aleo-std",
+ "anyhow",
+ "hashbrown 0.13.1",
+ "hex",
+ "itertools",
+ "parking_lot",
+ "rand",
+ "rand_chacha",
+ "rand_core",
+ "rayon",
+ "serde",
+ "sha2",
+ "smallvec",
+ "snarkvm-curves 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "snarkvm-fields 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "snarkvm-parameters 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "snarkvm-r1cs 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "snarkvm-utilities 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "thiserror",
+]
+
+[[package]]
+name = "snarkvm-algorithms"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "aleo-std",
  "anyhow",
  "crossbeam-channel",
- "hashbrown",
+ "hashbrown 0.13.1",
  "hex",
  "itertools",
  "lazy_static",
@@ -1776,18 +1801,18 @@ dependencies = [
  "serde",
  "sha2",
  "smallvec",
- "snarkvm-curves",
- "snarkvm-fields",
- "snarkvm-parameters",
- "snarkvm-r1cs",
- "snarkvm-utilities",
+ "snarkvm-curves 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-parameters 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-r1cs 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
  "thiserror",
 ]
 
 [[package]]
 name = "snarkvm-circuit"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-account",
  "snarkvm-circuit-algorithms",
@@ -1800,8 +1825,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-account"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-algorithms",
  "snarkvm-circuit-network",
@@ -1811,18 +1836,18 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-algorithms"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-types",
  "snarkvm-console-algorithms",
- "snarkvm-fields",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
 ]
 
 [[package]]
 name = "snarkvm-circuit-collections"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-algorithms",
  "snarkvm-circuit-types",
@@ -1831,8 +1856,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-environment"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "indexmap",
  "itertools",
@@ -1841,21 +1866,21 @@ dependencies = [
  "once_cell",
  "snarkvm-circuit-environment-witness",
  "snarkvm-console-network",
- "snarkvm-curves",
- "snarkvm-fields",
- "snarkvm-r1cs",
- "snarkvm-utilities",
+ "snarkvm-curves 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-r1cs 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
 ]
 
 [[package]]
 name = "snarkvm-circuit-environment-witness"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 
 [[package]]
 name = "snarkvm-circuit-network"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-algorithms",
  "snarkvm-circuit-collections",
@@ -1865,20 +1890,21 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-program"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-account",
+ "snarkvm-circuit-collections",
  "snarkvm-circuit-network",
  "snarkvm-circuit-types",
  "snarkvm-console-program",
- "snarkvm-utilities",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
 ]
 
 [[package]]
 name = "snarkvm-circuit-types"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-environment",
  "snarkvm-circuit-types-address",
@@ -1892,8 +1918,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-types-address"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-environment",
  "snarkvm-circuit-types-boolean",
@@ -1905,8 +1931,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-types-boolean"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-environment",
  "snarkvm-console-types-boolean",
@@ -1914,8 +1940,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-types-field"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-environment",
  "snarkvm-circuit-types-boolean",
@@ -1924,8 +1950,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-types-group"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-environment",
  "snarkvm-circuit-types-boolean",
@@ -1936,8 +1962,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-types-integers"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-environment",
  "snarkvm-circuit-types-boolean",
@@ -1947,8 +1973,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-types-scalar"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-environment",
  "snarkvm-circuit-types-boolean",
@@ -1958,8 +1984,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-circuit-types-string"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-circuit-environment",
  "snarkvm-circuit-types-boolean",
@@ -1969,35 +1995,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "snarkvm-compiler"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
-dependencies = [
- "anyhow",
- "blake2",
- "colored",
- "indexmap",
- "once_cell",
- "parking_lot",
- "paste",
- "rand",
- "rayon",
- "serde",
- "serde_json",
- "snarkvm-algorithms",
- "snarkvm-circuit",
- "snarkvm-console",
- "snarkvm-curves",
- "snarkvm-fields",
- "snarkvm-utilities",
- "time",
- "tracing",
-]
-
-[[package]]
 name = "snarkvm-console"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-console-account",
  "snarkvm-console-algorithms",
@@ -2009,8 +2009,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-console-account"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "bs58",
  "snarkvm-console-network",
@@ -2019,20 +2019,20 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-console-algorithms"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "blake2s_simd",
  "smallvec",
  "snarkvm-console-types",
- "snarkvm-fields",
- "snarkvm-utilities",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
 ]
 
 [[package]]
 name = "snarkvm-console-collections"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "aleo-std",
  "rayon",
@@ -2042,29 +2042,31 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-console-network"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "anyhow",
+ "indexmap",
  "itertools",
  "lazy_static",
  "once_cell",
+ "paste",
  "serde",
- "snarkvm-algorithms",
+ "snarkvm-algorithms 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
  "snarkvm-console-algorithms",
  "snarkvm-console-collections",
  "snarkvm-console-network-environment",
  "snarkvm-console-types",
- "snarkvm-curves",
- "snarkvm-fields",
- "snarkvm-parameters",
- "snarkvm-utilities",
+ "snarkvm-curves 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-parameters 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
 ]
 
 [[package]]
 name = "snarkvm-console-network-environment"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "anyhow",
  "bech32",
@@ -2073,15 +2075,15 @@ dependencies = [
  "num-traits",
  "rand",
  "serde",
- "snarkvm-curves",
- "snarkvm-fields",
- "snarkvm-utilities",
+ "snarkvm-curves 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
 ]
 
 [[package]]
 name = "snarkvm-console-program"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "enum_index",
  "enum_index_derive",
@@ -2091,14 +2093,15 @@ dependencies = [
  "once_cell",
  "serde_json",
  "snarkvm-console-account",
+ "snarkvm-console-collections",
  "snarkvm-console-network",
  "snarkvm-console-types",
 ]
 
 [[package]]
 name = "snarkvm-console-types"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-console-network-environment",
  "snarkvm-console-types-address",
@@ -2112,8 +2115,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-console-types-address"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-console-network-environment",
  "snarkvm-console-types-boolean",
@@ -2123,16 +2126,16 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-console-types-boolean"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-console-network-environment",
 ]
 
 [[package]]
 name = "snarkvm-console-types-field"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-console-network-environment",
  "snarkvm-console-types-boolean",
@@ -2140,8 +2143,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-console-types-group"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-console-network-environment",
  "snarkvm-console-types-boolean",
@@ -2151,8 +2154,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-console-types-integers"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-console-network-environment",
  "snarkvm-console-types-boolean",
@@ -2161,8 +2164,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-console-types-scalar"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-console-network-environment",
  "snarkvm-console-types-boolean",
@@ -2171,8 +2174,8 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-console-types-string"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "snarkvm-console-network-environment",
  "snarkvm-console-types-boolean",
@@ -2182,21 +2185,36 @@ dependencies = [
 
 [[package]]
 name = "snarkvm-curves"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d44afd5a161396a171f9ee28af2ae8a64ad886fc5c2c75b8a0a43906e07559b7"
 dependencies = [
  "rand",
  "rustc_version",
  "serde",
- "snarkvm-fields",
- "snarkvm-utilities",
+ "snarkvm-fields 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "snarkvm-utilities 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "thiserror",
+]
+
+[[package]]
+name = "snarkvm-curves"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
+dependencies = [
+ "rand",
+ "rustc_version",
+ "serde",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
  "thiserror",
 ]
 
 [[package]]
 name = "snarkvm-fields"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "714aab82b976a5d1fe275e6a96db95007c471404bf1323b767d614a6ba830878"
 dependencies = [
  "aleo-std",
  "anyhow",
@@ -2206,53 +2224,143 @@ dependencies = [
  "rand",
  "rayon",
  "serde",
- "snarkvm-utilities",
+ "snarkvm-utilities 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "thiserror",
+]
+
+[[package]]
+name = "snarkvm-fields"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
+dependencies = [
+ "aleo-std",
+ "anyhow",
+ "derivative",
+ "itertools",
+ "num-traits",
+ "rand",
+ "rayon",
+ "serde",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
  "thiserror",
 ]
 
 [[package]]
 name = "snarkvm-parameters"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "593197ceb759876e5e7e5589563439c6b4529c8955f5dcaaa1f5d2d3f9854327"
 dependencies = [
  "aleo-std",
  "anyhow",
  "bincode",
  "cfg-if",
+ "colored",
  "curl",
  "hex",
  "indexmap",
  "itertools",
  "lazy_static",
+ "parking_lot",
  "paste",
  "rand",
  "serde_json",
  "sha2",
- "snarkvm-curves",
- "snarkvm-utilities",
+ "snarkvm-curves 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "snarkvm-utilities 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "thiserror",
+]
+
+[[package]]
+name = "snarkvm-parameters"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
+dependencies = [
+ "aleo-std",
+ "anyhow",
+ "bincode",
+ "cfg-if",
+ "colored",
+ "curl",
+ "hex",
+ "indexmap",
+ "itertools",
+ "lazy_static",
+ "parking_lot",
+ "paste",
+ "rand",
+ "serde_json",
+ "sha2",
+ "snarkvm-curves 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
  "thiserror",
 ]
 
 [[package]]
 name = "snarkvm-r1cs"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "06cb89fd7ce19c2ab1ffc3d6907c392dd85e5f7d55edf68c722f60165f0c6a52"
 dependencies = [
  "anyhow",
  "cfg-if",
  "fxhash",
  "indexmap",
  "itertools",
- "snarkvm-curves",
- "snarkvm-fields",
- "snarkvm-utilities",
+ "snarkvm-curves 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "snarkvm-fields 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "snarkvm-utilities 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror",
 ]
 
 [[package]]
+name = "snarkvm-r1cs"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
+dependencies = [
+ "anyhow",
+ "cfg-if",
+ "fxhash",
+ "indexmap",
+ "itertools",
+ "snarkvm-curves 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "thiserror",
+]
+
+[[package]]
+name = "snarkvm-synthesizer"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
+dependencies = [
+ "aleo-std",
+ "anyhow",
+ "blake2",
+ "colored",
+ "indexmap",
+ "once_cell",
+ "parking_lot",
+ "paste",
+ "rand",
+ "rayon",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "snarkvm-algorithms 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-circuit",
+ "snarkvm-console",
+ "snarkvm-curves 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-fields 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "snarkvm-utilities 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
+ "tracing",
+]
+
+[[package]]
 name = "snarkvm-utilities"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f57ae0df35503c3c3b6267f9887058e0e96e489fb7e0820399511adcdf8f2c7a"
 dependencies = [
  "aleo-std",
  "anyhow",
@@ -2263,14 +2371,43 @@ dependencies = [
  "rand_xorshift",
  "rayon",
  "serde",
- "snarkvm-utilities-derives",
+ "snarkvm-utilities-derives 0.9.8 (registry+https://github.com/rust-lang/crates.io-index)",
+ "thiserror",
+]
+
+[[package]]
+name = "snarkvm-utilities"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
+dependencies = [
+ "aleo-std",
+ "anyhow",
+ "bincode",
+ "num-bigint",
+ "num_cpus",
+ "rand",
+ "rand_xorshift",
+ "rayon",
+ "serde",
+ "snarkvm-utilities-derives 0.9.8 (git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3)",
  "thiserror",
 ]
 
 [[package]]
 name = "snarkvm-utilities-derives"
-version = "0.9.0"
-source = "git+https://github.com/AleoHQ/snarkVM.git?branch=feat/new-posw-prover#d9f4c5221aceb3026c0831938865bd768ff4eb81"
+version = "0.9.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e26fdf4043334024299f910df1aeb09225502c7120c0752134c45be2ba24c60e"
+dependencies = [
+ "proc-macro2 1.0.46",
+ "quote 1.0.21",
+ "syn 1.0.102",
+]
+
+[[package]]
+name = "snarkvm-utilities-derives"
+version = "0.9.8"
+source = "git+https://github.com/AleoHQ/snarkVM.git?branch=testnet3#6d04326dae5e75e4f35def2e92c3a55e64ca08bc"
 dependencies = [
  "proc-macro2 1.0.46",
  "quote 1.0.21",
@@ -2440,16 +2577,6 @@ dependencies = [
  "proc-macro2 1.0.46",
  "quote 1.0.21",
  "syn 1.0.102",
-]
-
-[[package]]
-name = "time"
-version = "0.3.15"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d634a985c4d4238ec39cacaed2e7ae552fbd3c476b552c1deac3021b7d7eaf0c"
-dependencies = [
- "libc",
- "num_threads",
 ]
 
 [[package]]

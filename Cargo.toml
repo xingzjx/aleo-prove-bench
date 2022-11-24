@@ -14,6 +14,7 @@ nvml-wrapper = "0.8.0"
 once_cell = "1.15.0"
 rand = "0.8"
 sysinfo = "0.26.4"
+snarkvm-algorithms = "0.9.6"
 
 [dependencies.aleo-std]
 version = "0.1.14"
@@ -23,13 +24,7 @@ features = [ "cpu", "storage", "time", "timed" ]
 
 [dependencies.snarkvm]
 git = "https://github.com/AleoHQ/snarkVM.git"
-branch = "feat/new-posw-prover"
-features = [
-    "cuda",
-    "algorithms",
-    "curves",
-    "fields",
-    "r1cs",
-    "utilities",
-    "parallel",
-]
+branch = "testnet3"
+features = ["cuda","algorithms","curves","fields","r1cs","utilities","parallel",]
+# version = "0.9.8"
+# features = ["circuit", "console", "parallel", "cuda"]

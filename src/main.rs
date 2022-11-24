@@ -28,7 +28,7 @@ fn main() {
     metrics::print_title_info("Author", "The MinerDao Team <minerdaoinfo@gmail.com>");
     metrics::print_title_info("Description", &format!("Aleo prove benchmark degree={}, elapse=5min", degree));
     metrics::print_title_info("Submit", "Please submit your result here: https://github.com/minerdao/aleo-prove-bench/issues/new/choose");
-    metrics::print_device_info();
+    // metrics::print_device_info();
 
     coinbase::bench(degree);
     
