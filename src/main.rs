@@ -30,9 +30,9 @@ fn main() {
     metrics::print_title_info("Submit", "Please submit your result here: https://github.com/minerdao/aleo-prove-bench/issues/new/choose");
     // metrics::print_device_info();
 
-    // coinbase::bench(degree);
+    coinbase::bench(degree);
     
-    msm::bench(2_000_000);
+    // msm::bench(2_000_000);
     // hash::bench();
     // fft::bench(1 << 22);
     // snark::bench(100_000);
